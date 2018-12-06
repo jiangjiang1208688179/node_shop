@@ -14,14 +14,14 @@ router.get('/', function(req, res, next){
                 var result = {
                     code: 404,
                     message: 'not found',
-                    data: re
+                    result: re
                 }
                 
             } else{
                 var result = {
                     code: 200,
                     message: 'success',
-                    data: re
+                    result: re
                 }
             }
             res.send(status, result)

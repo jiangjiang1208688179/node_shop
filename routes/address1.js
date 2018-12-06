@@ -9,7 +9,7 @@ router.get('/', function(req, res, next){
             var result = {
                 code: 200,
                 message: 'success',
-                data: re
+                result: re
             }
             res.send('200', result)
         }

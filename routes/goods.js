@@ -4,12 +4,14 @@ var goodsModel = require('../module/goods.js')
 router.get('/', function(req, res, next){
     goodsModel.find({}, function(err, re){
         if(err) {
+            res.render();
             console.log(err)
         } else {
+            res.setHeader("Access-Control-Allow-Origin", "*");
             var result = {
                 code: 200,
                 message: 'success',
-                data: re
+                result: re
             }
             res.send('200', result)
         }
@@ -26,14 +28,14 @@ router.get('/detail', function(req, res, next){
                 result = {
                     code: 404,
                     message: 'not found',
-                    data: re
+                    result: re
                 }
                 
             } else{
                 result = {
                     code: 200,
                     message: 'success',
-                    data: re
+                    result: re
                 }
             }
             res.send(status, result)

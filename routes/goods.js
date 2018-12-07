@@ -7,7 +7,7 @@ router.get('/', function(req, res, next){
             res.render();
             console.log(err)
         } else {
-            res.setHeader("Access-Control-Allow-Origin", "*");
+            // res.setHeader("Access-Control-Allow-Origin", "*");
             var result = {
                 code: 200,
                 message: 'success',

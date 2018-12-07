@@ -21,6 +21,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', ejs.__express);
 app.set('view engine', 'html');  //将views文件夹下的文件变成.html文件（默认是.ejs）
 
+//此处设置所有的res.setHeader参数，全局变量，都是有效
+app.all('*', function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin','*');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST');  
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');  
+  // res.setHeader("Content-Type", "application/json;charset=utf-8"); 
+  next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
